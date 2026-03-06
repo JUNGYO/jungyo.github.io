@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Jungyo Suh — Urologic Oncologist · Clinical AI · Privacy-Preserving Medicine">
+<meta name="description" content="Jungyo Suh — Urologic Oncologist · Clinical AI · Privacy-Preserving Medicine · Asan Medical Center">
 <title>Jungyo Suh</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Overpass+Mono:wght@300;400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -14,7 +14,7 @@
   --g1:#1C1C1C;
   --g2:#2E2E2E;
   --g3:#888;
-  --g4:#555;
+  --g4:#666;
   --accent:#C8B89A;
   --accent-dark:#8A7A62;
 }
@@ -37,9 +37,7 @@ body::after{
 }
 a{color:inherit;text-decoration:none;}
 
-/* ── ANIMATIONS ── */
 @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 .a1{opacity:0;animation:up .7s ease .05s forwards;}
 .a2{opacity:0;animation:up .7s ease .15s forwards;}
 .a3{opacity:0;animation:up .7s ease .25s forwards;}
@@ -48,11 +46,7 @@ a{color:inherit;text-decoration:none;}
 .a6{opacity:0;animation:up .7s ease .55s forwards;}
 .a7{opacity:0;animation:up .7s ease .65s forwards;}
 
-/* ═══════════════════════════════════════
-   MOBILE LAYOUT (default, max-width:768px)
-═══════════════════════════════════════ */
-
-/* NAV */
+/* ── NAV ── */
 nav{
   position:relative;z-index:10;
   display:flex;align-items:center;justify-content:space-between;
@@ -60,231 +54,159 @@ nav{
   border-bottom:1px solid var(--g2);
 }
 .nav-brand{display:flex;align-items:center;gap:10px;}
-.nav-word{font-family:'Overpass Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--white);}
-.nav-right{font-family:'Overpass Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);}
+.nav-word{font-family:'Overpass Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.22em;color:var(--white);}
+.nav-right{font-family:'Overpass Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--g3);}
 
-/* HERO */
-.hero{
-  position:relative;z-index:1;
-  padding:48px 24px 44px;
-  border-bottom:1px solid var(--g2);
-}
+/* ── HERO ── */
+.hero{position:relative;z-index:1;padding:48px 24px 44px;border-bottom:1px solid var(--g2);}
 .hero-hex{display:flex;justify-content:flex-end;margin-bottom:24px;}
-.kicker{font-family:'Overpass Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(52px,13vw,80px);line-height:.93;letter-spacing:-.02em;margin-bottom:28px;}
+.kicker{font-family:'Overpass Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;line-height:1.6;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(56px,14vw,80px);line-height:.93;letter-spacing:-.02em;margin-bottom:28px;}
 .hero-title em{font-style:italic;color:var(--accent);}
 .hero-rule{width:1px;height:44px;background:var(--g2);margin-bottom:24px;}
-.hero-bio{font-size:13.5px;line-height:1.85;color:var(--g3);margin-bottom:36px;}
-.hero-meta{}
-.meta-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--white);margin-bottom:4px;}
-.meta-cred{font-family:'Overpass Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
-.meta-affil{font-size:12px;color:var(--g4);line-height:1.7;}
+.hero-bio{font-size:16px;line-height:1.85;color:var(--g3);margin-bottom:36px;}
+.meta-name{font-family:'Playfair Display',serif;font-size:20px;color:var(--white);margin-bottom:5px;}
+.meta-cred{font-family:'Overpass Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.meta-affil{font-size:14px;color:var(--g4);line-height:1.75;}
 
-/* ── SAVE CONTACT — FULL WIDTH PROMINENT ── */
-.save-wrap{
-  position:relative;z-index:1;
-  padding:0;
-  border-bottom:1px solid var(--g2);
-}
+/* ── SAVE CONTACT ── */
+.save-wrap{position:relative;z-index:1;border-bottom:1px solid var(--g2);}
 .save-btn{
   display:flex;align-items:center;justify-content:space-between;
-  width:100%;padding:0 24px;
-  height:64px;
-  background:var(--accent);
-  border:none;cursor:pointer;
+  width:100%;padding:0 24px;height:72px;
+  background:var(--accent);border:none;cursor:pointer;
   transition:background .2s;
 }
 .save-btn:hover{background:#d4c4aa;}
 .save-btn:active{background:#b8a48a;}
-.save-left{display:flex;align-items:center;gap:12px;}
-.save-text{
-  font-family:'Overpass Mono',monospace;
-  font-size:11px;font-weight:600;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--black);
-}
-.save-sub{
-  font-family:'Overpass Mono',monospace;
-  font-size:8px;letter-spacing:.12em;
-  color:rgba(10,10,10,.5);
-  text-transform:uppercase;
-  margin-top:2px;
-}
-.save-arrow{
-  font-size:20px;color:var(--black);
-  opacity:.5;transition:transform .2s, opacity .2s;
-}
+.save-left{display:flex;align-items:center;gap:14px;}
+.save-text{font-family:'Overpass Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--black);}
+.save-sub{font-family:'Overpass Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(10,10,10,.5);text-transform:uppercase;margin-top:3px;}
+.save-arrow{font-size:22px;color:var(--black);opacity:.5;transition:transform .2s,opacity .2s;}
 .save-btn:hover .save-arrow{transform:translateX(4px);opacity:.8;}
 
-/* STATS */
-.stats{
-  position:relative;z-index:1;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-bottom:1px solid var(--g2);
-}
-.stat{padding:22px 0;text-align:center;border-right:1px solid var(--g2);}
+/* ── STATS ── */
+.stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--g2);}
+.stat{padding:24px 0;text-align:center;border-right:1px solid var(--g2);}
 .stat:last-child{border-right:none;}
-.stat-n{font-family:'Playfair Display',serif;font-size:24px;color:var(--white);display:block;line-height:1;margin-bottom:5px;}
-.stat-l{font-family:'Overpass Mono',monospace;font-size:7px;color:var(--g3);letter-spacing:.16em;text-transform:uppercase;display:block;}
+.stat-n{font-family:'Playfair Display',serif;font-size:26px;color:var(--white);display:block;line-height:1;margin-bottom:6px;}
+.stat-l{font-family:'Overpass Mono',monospace;font-size:9px;color:var(--g3);letter-spacing:.14em;text-transform:uppercase;display:block;}
 
-/* SHARED SECTION PARTS */
+/* ── SHARED ── */
 .sec{position:relative;z-index:1;border-bottom:1px solid var(--g2);}
-.sec-hdr{
-  padding:18px 24px 14px;
-  border-bottom:1px solid var(--g2);
-  display:flex;align-items:center;justify-content:space-between;
-}
-.slabel{font-family:'Overpass Mono',monospace;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--g3);}
+.sec-hdr{padding:20px 24px 16px;border-bottom:1px solid var(--g2);display:flex;align-items:center;justify-content:space-between;}
+.slabel{font-family:'Overpass Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--g3);}
 
-/* RESEARCH ROWS */
-.ri{display:grid;grid-template-columns:32px 1fr;border-bottom:1px solid var(--g2);transition:background .18s;}
+/* ── RESEARCH ── */
+.ri{display:grid;grid-template-columns:40px 1fr;border-bottom:1px solid var(--g2);transition:background .18s;}
 .ri:last-child{border-bottom:none;}
 .ri:hover{background:var(--g1);}
-.rn{padding:22px 0 22px 24px;font-family:'Overpass Mono',monospace;font-size:9px;letter-spacing:.08em;color:var(--g3);}
-.rh{padding:20px 24px;}
-.rt{font-family:'Playfair Display',serif;font-size:17px;color:var(--white);line-height:1.15;margin-bottom:5px;}
-.rs{font-family:'Overpass Mono',monospace;font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:9px;}
-.rb{font-size:12px;color:var(--g4);line-height:1.75;}
+.rn{padding:26px 0 26px 24px;font-family:'Overpass Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--g3);}
+.rh{padding:22px 24px;}
+.rt{font-family:'Playfair Display',serif;font-size:20px;color:var(--white);line-height:1.15;margin-bottom:6px;}
+.rs{font-family:'Overpass Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.rb{font-size:14px;color:var(--g4);line-height:1.75;}
 
-/* FACT TABLE */
-.fact{display:flex;justify-content:space-between;align-items:baseline;padding:15px 24px;border-bottom:1px solid var(--g2);gap:20px;}
+/* ── FACTS ── */
+.fact{display:flex;justify-content:space-between;align-items:baseline;padding:16px 24px;border-bottom:1px solid var(--g2);gap:20px;}
 .fact:last-child{border-bottom:none;}
-.fk{font-family:'Overpass Mono',monospace;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);white-space:nowrap;flex-shrink:0;}
-.fv{font-size:12px;color:var(--white);text-align:right;line-height:1.5;}
+.fk{font-family:'Overpass Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g3);white-space:nowrap;flex-shrink:0;}
+.fv{font-size:14px;color:var(--white);text-align:right;line-height:1.5;}
 
-/* PUBLICATIONS */
-.pub{padding:18px 24px;border-bottom:1px solid var(--g2);transition:background .18s;}
+/* ── PUBS ── */
+.pub{padding:20px 24px;border-bottom:1px solid var(--g2);transition:background .18s;}
 .pub:last-child{border-bottom:none;}
 .pub:hover{background:var(--g1);}
-.pub-j{font-family:'Overpass Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;display:flex;justify-content:space-between;align-items:center;}
-.pub-if{font-size:8px;color:var(--g3);letter-spacing:.1em;}
-.pub-t{font-family:'Playfair Display',serif;font-size:14.5px;color:var(--white);line-height:1.35;margin-bottom:5px;}
-.pub-m{font-size:11px;color:var(--g4);}
+.pub-j{font-family:'Overpass Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;}
+.pub-if{font-size:10px;color:var(--g3);letter-spacing:.1em;}
+.pub-t{font-family:'Playfair Display',serif;font-size:16px;color:var(--white);line-height:1.4;margin-bottom:6px;}
+.pub-m{font-size:13px;color:var(--g4);}
 
-/* CONNECT LINKS */
-.lnk{display:flex;align-items:center;padding:15px 24px;border-bottom:1px solid var(--g2);gap:16px;transition:background .18s;}
+/* ── CONNECT LINKS (mobile) ── */
+.lnk{display:flex;align-items:center;padding:18px 24px;border-bottom:1px solid var(--g2);gap:16px;transition:background .18s;}
 .lnk:last-child{border-bottom:none;}
 .lnk:hover{background:var(--g1);}
-.lnk-type{font-family:'Overpass Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);min-width:68px;flex-shrink:0;}
-.lnk-val{font-size:12.5px;color:var(--white);flex:1;}
-.lnk-arr{color:var(--g3);font-size:14px;flex-shrink:0;}
+.lnk-type{font-family:'Overpass Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g3);min-width:76px;flex-shrink:0;}
+.lnk-val{font-size:15px;color:var(--white);flex:1;}
+.lnk-arr{color:var(--g3);font-size:18px;flex-shrink:0;}
 
-/* WHITE INVERT SECTION */
+/* ── WHITE INVERT ── */
 .sec-white{position:relative;z-index:1;background:var(--white);color:var(--black);border-bottom:1px solid #d8d6d1;}
 .sec-white .sec-hdr{border-bottom:1px solid #d8d6d1;}
 .sec-white .slabel{color:#aaa;}
 .sec-white .fact{border-bottom-color:#d8d6d1;}
-.sec-white .fk{color:#aaa;}
+.sec-white .fk{color:#999;}
 .sec-white .fv{color:var(--black);}
-.w-name{font-family:'Playfair Display',serif;font-size:34px;color:var(--black);line-height:1;padding:22px 24px 4px;}
+.w-name{font-family:'Playfair Display',serif;font-size:38px;color:var(--black);line-height:1;padding:26px 24px 6px;}
 .w-name em{font-style:italic;color:var(--accent-dark);}
-.w-body{font-size:13px;color:#666;line-height:1.85;padding:0 24px 24px;}
+.w-body{font-size:15px;color:#666;line-height:1.85;padding:0 24px 28px;}
 
-/* FOOTER */
-footer{
-  position:relative;z-index:1;
-  padding:20px 24px;
-  border-top:1px solid var(--g2);
-  display:flex;align-items:center;justify-content:space-between;
-}
-.ft{font-family:'Overpass Mono',monospace;font-size:9px;color:var(--g3);letter-spacing:.08em;display:flex;align-items:center;gap:10px;}
-.fr{font-family:'Overpass Mono',monospace;font-size:9px;color:var(--g2);letter-spacing:.1em;text-transform:uppercase;}
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;padding:22px 24px;border-top:1px solid var(--g2);display:flex;align-items:center;justify-content:space-between;}
+.ft{font-family:'Overpass Mono',monospace;font-size:10px;color:var(--g3);letter-spacing:.08em;display:flex;align-items:center;gap:10px;}
+.fr{font-family:'Overpass Mono',monospace;font-size:10px;color:var(--g2);letter-spacing:.1em;text-transform:uppercase;}
 
-/* ═══════════════════════════════════════
-   DESKTOP LAYOUT (min-width: 768px)
-═══════════════════════════════════════ */
+/* ════════════════════════════════
+   DESKTOP ≥ 768px
+════════════════════════════════ */
 @media(min-width:768px){
   body{max-width:1100px;margin:0 auto;}
+  nav{padding:24px 56px;}
 
-  nav{padding:24px 48px;}
-  .nav-word{font-size:11px;}
-
-  /* Desktop hero — two column */
-  .hero{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:0;
-    padding:0;
-    min-height:80vh;
-    align-items:stretch;
-  }
-  .hero-left{
-    padding:80px 64px;
-    border-right:1px solid var(--g2);
-    display:flex;flex-direction:column;justify-content:flex-end;
-  }
-  .hero-right{
-    display:flex;align-items:center;justify-content:center;
-    padding:80px 64px;
-  }
-  .hero-hex{justify-content:center;margin-bottom:0;}
-  .hero-hex svg{width:200px;height:200px;}
+  .hero{display:grid;grid-template-columns:1fr 1fr;padding:0;min-height:80vh;align-items:stretch;}
+  .hero-left{padding:80px 64px;border-right:1px solid var(--g2);display:flex;flex-direction:column;justify-content:flex-end;}
+  .hero-right{display:flex;align-items:center;justify-content:center;padding:80px 64px;}
+  .hero-hex{display:none;}
   .kicker{font-size:10px;}
   .hero-title{font-size:clamp(64px,8vw,96px);}
-  .hero-bio{font-size:14px;max-width:420px;}
+  .hero-bio{font-size:15px;max-width:420px;}
 
-  /* Save contact full width */
-  .save-btn{padding:0 48px;height:72px;}
-  .save-text{font-size:12px;}
+  .save-btn{padding:0 56px;height:80px;}
+  .save-text{font-size:13px;}
 
-  /* Stats */
-  .stats{border-bottom:1px solid var(--g2);}
-  .stat{padding:28px 0;}
-  .stat-n{font-size:30px;}
-  .stat-l{font-size:8px;}
+  .stat{padding:30px 0;}
+  .stat-n{font-size:32px;}
+  .stat-l{font-size:9px;}
 
-  /* Two-column content grid */
-  .content-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    border-bottom:1px solid var(--g2);
-  }
+  .research-full{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--g2);}
+  .research-full .ri{border-right:1px solid var(--g2);border-bottom:none;grid-template-columns:1fr;}
+  .research-full .ri:last-child{border-right:none;}
+  .research-full .rn{padding:28px 0 0 36px;}
+  .research-full .rh{padding:12px 36px 36px;}
+  .rt{font-size:22px;}
+
+  .content-grid{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--g2);}
   .col-left{border-right:1px solid var(--g2);}
   .col-left .sec,.col-right .sec{border-bottom:none;border-top:1px solid var(--g2);}
   .col-left .sec:first-child,.col-right .sec:first-child{border-top:none;}
+  .fact{padding:18px 36px;}
+  .sec-hdr{padding:22px 36px 18px;}
+  .pub{padding:22px 36px;}
+  .lnk{padding:18px 36px;}
 
-  /* Research rows wider */
-  .ri{grid-template-columns:44px 1fr;}
-  .rn{padding:28px 0 28px 32px;}
-  .rh{padding:26px 32px;}
-  .rt{font-size:20px;}
-  .rb{font-size:13px;}
-
-  /* Facts */
-  .fact{padding:16px 32px;}
-  .sec-hdr{padding:20px 32px 16px;}
-
-  /* Pubs */
-  .pub{padding:20px 32px;}
-
-  /* Links */
-  .lnk{padding:16px 32px;}
-
-  /* White section */
   .sec-white{display:grid;grid-template-columns:1fr 1fr;}
   .sec-white-left{border-right:1px solid #d8d6d1;padding-bottom:32px;}
-  .sec-white-right{}
-  .w-name{font-size:48px;padding:32px 40px 8px;}
-  .w-body{font-size:14px;padding:0 40px 32px;max-width:380px;}
-  .sec-white .fact{padding:16px 40px;}
-  .sec-white .sec-hdr{padding:20px 40px 16px;}
+  .w-name{font-size:52px;padding:36px 48px 8px;}
+  .w-body{font-size:15px;padding:0 48px 36px;max-width:400px;}
+  .sec-white .fact{padding:18px 48px;}
+  .sec-white .sec-hdr{padding:22px 48px 18px;}
 
-  /* Full-width research section */
-  .research-full{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    border-bottom:1px solid var(--g2);
-  }
-  .research-full .ri{
-    border-right:1px solid var(--g2);
-    border-bottom:none;
-    grid-template-columns:1fr;
-  }
-  .research-full .ri:last-child{border-right:none;}
-  .research-full .rn{padding:28px 0 0 32px;}
-  .research-full .rh{padding:12px 32px 32px;}
+  footer{padding:24px 56px;}
+  #connect-mobile{display:none;}
+}
 
-  footer{padding:24px 48px;}
+/* ════════════════════════════════
+   MOBILE < 768px
+════════════════════════════════ */
+@media(max-width:767px){
+  .hero-right{display:none;}
+  .hero-left{padding:48px 24px 44px;}
+  .sec-white-right{display:none;}
+  .research-full{display:block;}
+  .research-full .ri{grid-template-columns:40px 1fr;border-bottom:1px solid var(--g2);border-right:none;}
+  .research-full .ri:last-child{border-bottom:none;}
+  .content-grid{display:block;}
+  .col-left .sec,.col-right .sec{border-bottom:1px solid var(--g2);}
 }
 </style>
 </head>
@@ -295,8 +217,8 @@ footer{
   <div class="nav-brand">
     <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
       <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" fill="none" stroke="#F2F0EB" stroke-width="1.2"/>
-      <line x1="14" y1="14" x2="14" y2="2.5"  stroke="#C8B89A" stroke-width="1" opacity=".7"/>
-      <line x1="14" y1="14" x2="3.5" y2="20.5" stroke="#C8B89A" stroke-width="1" opacity=".7"/>
+      <line x1="14" y1="14" x2="14"   y2="2.5"  stroke="#C8B89A" stroke-width="1" opacity=".7"/>
+      <line x1="14" y1="14" x2="3.5"  y2="20.5" stroke="#C8B89A" stroke-width="1" opacity=".7"/>
       <line x1="14" y1="14" x2="24.5" y2="20.5" stroke="#C8B89A" stroke-width="1" opacity=".7"/>
       <circle cx="14" cy="14" r="2" fill="#F2F0EB"/>
     </svg>
@@ -307,16 +229,14 @@ footer{
 
 <!-- HERO -->
 <section class="hero">
-  <!-- Mobile: single col. Desktop: left col -->
   <div class="hero-left a2">
     <div class="hero-hex">
-      <!-- shown only on mobile -->
-      <svg class="mobile-hex" width="60" height="60" viewBox="0 0 280 280" fill="none">
+      <svg width="64" height="64" viewBox="0 0 280 280" fill="none">
         <polygon points="140,12 248,72 248,208 140,268 32,208 32,72" fill="none" stroke="#F2F0EB" stroke-width="1.5" opacity=".2"/>
         <line x1="140" y1="140" x2="140" y2="12"  stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
         <line x1="140" y1="140" x2="32"  y2="208" stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
         <line x1="140" y1="140" x2="248" y2="208" stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
-        <circle cx="140" cy="140" r="5" fill="#F2F0EB" opacity=".8"/>
+        <circle cx="140" cy="140" r="5"   fill="#F2F0EB" opacity=".8"/>
         <circle cx="140" cy="13"  r="3.5" fill="none" stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
         <circle cx="32"  cy="209" r="3.5" fill="none" stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
         <circle cx="248" cy="209" r="3.5" fill="none" stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
@@ -337,9 +257,8 @@ footer{
     </div>
   </div>
 
-  <!-- Desktop only right panel -->
   <div class="hero-right a3">
-    <svg width="200" height="200" viewBox="0 0 280 280" fill="none" style="opacity:.6">
+    <svg width="220" height="220" viewBox="0 0 280 280" fill="none" style="opacity:.55">
       <polygon points="140,12 248,72 248,208 140,268 32,208 32,72" fill="none" stroke="#F2F0EB" stroke-width="1.5" opacity=".2"/>
       <polygon points="140,50 216,95 216,185 140,230 64,185 64,95"  fill="none" stroke="#F2F0EB" stroke-width=".6" opacity=".07"/>
       <line x1="140" y1="140" x2="140" y2="12"  stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
@@ -349,19 +268,18 @@ footer{
       <circle cx="140" cy="13"  r="4.5" fill="none" stroke="#C8B89A" stroke-width="1.2" opacity=".6"/>
       <circle cx="32"  cy="209" r="4.5" fill="none" stroke="#C8B89A" stroke-width="1.2" opacity=".6"/>
       <circle cx="248" cy="209" r="4.5" fill="none" stroke="#C8B89A" stroke-width="1.2" opacity=".6"/>
-      <!-- sector labels -->
-      <text x="128" y="60" font-family="'Overpass Mono',monospace" font-size="10" fill="#C8B89A" opacity=".5" text-anchor="middle" letter-spacing="1">01</text>
-      <text x="66"  y="200" font-family="'Overpass Mono',monospace" font-size="10" fill="#C8B89A" opacity=".5" text-anchor="middle" letter-spacing="1">02</text>
-      <text x="214" y="200" font-family="'Overpass Mono',monospace" font-size="10" fill="#C8B89A" opacity=".5" text-anchor="middle" letter-spacing="1">03</text>
+      <text x="140" y="56"  font-family="'Overpass Mono',monospace" font-size="11" fill="#C8B89A" opacity=".4" text-anchor="middle" letter-spacing="2">ONCOLOGY</text>
+      <text x="60"  y="210" font-family="'Overpass Mono',monospace" font-size="11" fill="#C8B89A" opacity=".4" text-anchor="middle" letter-spacing="2">CLINICAL AI</text>
+      <text x="220" y="210" font-family="'Overpass Mono',monospace" font-size="11" fill="#C8B89A" opacity=".4" text-anchor="middle" letter-spacing="2">PRIVACY</text>
     </svg>
   </div>
 </section>
 
-<!-- ── SAVE CONTACT — PROMINENT ── -->
+<!-- SAVE CONTACT -->
 <div class="save-wrap a3">
   <button class="save-btn" onclick="saveContact()">
     <div class="save-left">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
         <circle cx="12" cy="7" r="4"/>
         <line x1="16" y1="11" x2="22" y2="11"/>
@@ -369,7 +287,7 @@ footer{
       </svg>
       <div>
         <div class="save-text">Save Contact</div>
-        <div class="save-sub">Download .vcf to your phone</div>
+        <div class="save-sub">Download .vcf · Add to phonebook</div>
       </div>
     </div>
     <span class="save-arrow">→</span>
@@ -384,14 +302,14 @@ footer{
   <div class="stat"><span class="stat-n">5</span><span class="stat-l">Awards</span></div>
 </div>
 
-<!-- RESEARCH — horizontal 3-col on desktop -->
+<!-- RESEARCH PILLARS -->
 <div class="research-full a5">
   <div class="ri">
     <div class="rn">01</div>
     <div class="rh">
       <div class="rt">Urologic<br>Oncology</div>
       <div class="rs">Precision Medicine</div>
-      <div class="rb">Molecular characterization of prostate, kidney &amp; bladder cancers. NGS, liquid biopsy, multi-institutional cohort studies.</div>
+      <div class="rb">Molecular characterization of prostate, kidney &amp; bladder cancers. NGS, liquid biopsy, multi-institutional cohort studies. Causal AI for personalized adjuvant therapy in renal cell carcinoma.</div>
     </div>
   </div>
   <div class="ri">
@@ -399,7 +317,7 @@ footer{
     <div class="rh">
       <div class="rt">Clinical<br>AI</div>
       <div class="rs">Decision Support</div>
-      <div class="rb">ML models for biopsy recommendation, surgical risk stratification &amp; postoperative outcome prediction.</div>
+      <div class="rb">ML-based models for prostate biopsy recommendation, surgical risk stratification &amp; postoperative outcome prediction — validated across multiple institutions.</div>
     </div>
   </div>
   <div class="ri">
@@ -407,22 +325,20 @@ footer{
     <div class="rh">
       <div class="rt">Privacy &amp;<br>AI Safety</div>
       <div class="rs">Secure AI · Red Team</div>
-      <div class="rb">Homomorphic encryption &amp; LLM red-teaming. Prompt injection research published in JAMA Netw Open (2025–26).</div>
+      <div class="rb">Homomorphic encryption for multi-institutional analysis without raw data sharing. LLM red-teaming &amp; prompt injection research (JAMA Netw Open, 2025–26).</div>
     </div>
   </div>
 </div>
 
-<!-- TWO-COL CONTENT (desktop splits left/right) -->
+<!-- TWO-COL CONTENT -->
 <div class="content-grid">
 
-  <!-- LEFT COL -->
   <div class="col-left">
-
-    <!-- Featured Pubs -->
+    <!-- Publications -->
     <div class="sec a5">
       <div class="sec-hdr">
         <span class="slabel">Featured publications</span>
-        <span class="slabel" style="color:var(--g2)">Selected</span>
+        <span class="slabel" style="color:var(--g2)">High-impact</span>
       </div>
       <div class="pub">
         <div class="pub-j"><span>JAMA Network Open</span><span class="pub-if">IF 9.9 · 2026</span></div>
@@ -431,7 +347,7 @@ footer{
       </div>
       <div class="pub">
         <div class="pub-j"><span>JAMA Network Open</span><span class="pub-if">IF 9.9 · 2025</span></div>
-        <div class="pub-t">Vulnerability of LLMs to Prompt Injection in Medical Advice</div>
+        <div class="pub-t">Vulnerability of LLMs to Prompt Injection When Providing Medical Advice</div>
         <div class="pub-m">Corresponding Author</div>
       </div>
       <div class="pub">
@@ -441,33 +357,28 @@ footer{
       </div>
       <div class="pub">
         <div class="pub-j"><span>Experimental &amp; Molecular Medicine</span><span class="pub-if">IF 12.8 · 2024</span></div>
-        <div class="pub-t">Molecular Characterization of TFE3-rearranged Renal Cell Carcinoma</div>
+        <div class="pub-t">Comprehensive Molecular Characterization of TFE3-rearranged Renal Cell Carcinoma</div>
         <div class="pub-m">First Author</div>
       </div>
       <div class="pub">
         <div class="pub-j"><span>npj Digital Medicine</span><span class="pub-if">IF 15.3 · 2022</span></div>
-        <div class="pub-t">Multi-center Validation of ML Model for Postoperative Mortality Prediction</div>
+        <div class="pub-t">Multi-center Validation of ML Model for Preoperative Prediction of Postoperative Mortality</div>
         <div class="pub-m">Co-Author</div>
       </div>
     </div>
-
   </div>
 
-  <!-- RIGHT COL -->
   <div class="col-right">
-
-    <!-- About -->
+    <!-- At a glance -->
     <div class="sec a6">
-      <div class="sec-hdr">
-        <span class="slabel">At a glance</span>
-      </div>
+      <div class="sec-hdr"><span class="slabel">At a glance</span></div>
+      <div class="fact"><span class="fk">Position</span><span class="fv">Assistant Professor, Urology</span></div>
       <div class="fact"><span class="fk">Institution</span><span class="fv">Asan Medical Center, Seoul</span></div>
-      <div class="fact"><span class="fk">Title</span><span class="fv">Assistant Professor, Urology</span></div>
       <div class="fact"><span class="fk">Education</span><span class="fv">SNU Medicine — MD, PhD</span></div>
       <div class="fact"><span class="fk">Board Cert.</span><span class="fv">Urology 2015 · #2777</span></div>
-      <div class="fact"><span class="fk">Also</span><span class="fv">Director, Curigin · Faculty, Modulabs</span></div>
-      <div class="fact"><span class="fk">Top Award</span><span class="fv">KUOS BLUE 2025 — Best Researcher</span></div>
-      <div class="fact"><span class="fk">ORCID</span><span class="fv">0000-0002-3867-4778</span></div>
+      <div class="fact"><span class="fk">Company</span><span class="fv">Director, Curigin Co.</span></div>
+      <div class="fact"><span class="fk">Teaching</span><span class="fv">Faculty, Modulabs AI in Medicine</span></div>
+      <div class="fact"><span class="fk">2025 Award</span><span class="fv">KUOS BLUE — Best Researcher</span></div>
     </div>
 
     <!-- Patents -->
@@ -476,42 +387,47 @@ footer{
         <span class="slabel">Patents</span>
         <span class="slabel" style="color:var(--g2)">3 registered</span>
       </div>
-      <div class="fact"><span class="fk">10-2022-0128822</span><span class="fv">Bladder Cancer Diagnosis System</span></div>
-      <div class="fact"><span class="fk">10-2633977</span><span class="fv">Bladder Fullness Monitoring Device</span></div>
-      <div class="fact"><span class="fk">10-2515437</span><span class="fv">Prostate Cancer Risk Calculator</span></div>
+      <div class="fact"><span class="fk">Bladder Dx</span><span class="fv">Cancer Diagnosis System</span></div>
+      <div class="fact"><span class="fk">Bladder Mon.</span><span class="fv">Fullness Monitoring Device</span></div>
+      <div class="fact"><span class="fk">Prostate</span><span class="fv">Cancer Risk Calculator</span></div>
     </div>
-
   </div>
 
 </div>
 
-<!-- IDENTITY — white invert section -->
+<!-- WHITE INVERT — identity + connect desktop -->
 <div class="sec-white a6">
   <div class="sec-white-left">
-    <div class="sec-hdr"><span class="slabel">Director</span><span class="slabel" style="color:#ccc">CIPHER Lab</span></div>
+    <div class="sec-hdr">
+      <span class="slabel">Director</span>
+      <span class="slabel" style="color:#ccc">CIPHER Lab</span>
+    </div>
     <div class="w-name">Jungyo<br><em>Suh</em></div>
-    <p class="w-body">Urologic surgeon, molecular researcher, and AI red-teamer. The rare combination of operating room and encryption algorithm.</p>
+    <p class="w-body">Urologic surgeon, molecular researcher, and AI red-teamer. The rare combination of operating room and encryption algorithm — building medical AI that is both effective and trustworthy.</p>
   </div>
   <div class="sec-white-right">
     <div class="sec-hdr"><span class="slabel">Connect</span></div>
-    <div class="fact"><span class="fk">Work Email</span><span class="fv"><a href="mailto:uro_jun@amc.seoul.kr" style="color:inherit">uro_jun@amc.seoul.kr</a></span></div>
+    <div class="fact"><span class="fk">Email</span><span class="fv"><a href="mailto:uro_jun@amc.seoul.kr" style="color:inherit">uro_jun@amc.seoul.kr</a></span></div>
     <div class="fact"><span class="fk">LinkedIn</span><span class="fv"><a href="https://www.linkedin.com/in/jungyo-suh-45b170140/" target="_blank" rel="noopener" style="color:inherit">jungyo-suh</a></span></div>
     <div class="fact"><span class="fk">Scholar</span><span class="fv"><a href="https://scholar.google.co.kr/citations?user=7pzN9MAAAAJ&hl=ko" target="_blank" rel="noopener" style="color:inherit">Jungyo Suh</a></span></div>
     <div class="fact"><span class="fk">ORCID</span><span class="fv"><a href="https://orcid.org/0000-0002-3867-4778" target="_blank" rel="noopener" style="color:inherit">0000-0002-3867-4778</a></span></div>
     <div class="fact"><span class="fk">Twitter</span><span class="fv"><a href="https://twitter.com/prostatehunter" target="_blank" rel="noopener" style="color:inherit">@prostatehunter</a></span></div>
-    <div class="fact"><span class="fk">Company</span><span class="fv"><a href="http://www.curigin.com/" target="_blank" rel="noopener" style="color:inherit">curigin.com</a></span></div>
+    <div class="fact"><span class="fk">GitHub</span><span class="fv"><a href="https://github.com/jungyo/" target="_blank" rel="noopener" style="color:inherit">github.com/jungyo</a></span></div>
+    <div class="fact"><span class="fk">Website</span><span class="fv"><a href="https://jungyo.github.io/" target="_blank" rel="noopener" style="color:inherit">jungyo.github.io</a></span></div>
   </div>
 </div>
 
-<!-- CONNECT — mobile only full list -->
+<!-- CONNECT — mobile only -->
 <div class="sec a7" id="connect-mobile">
   <div class="sec-hdr"><span class="slabel">Connect</span></div>
-  <a class="lnk" href="mailto:uro_jun@amc.seoul.kr"><span class="lnk-type">Work Email</span><span class="lnk-val">uro_jun@amc.seoul.kr</span><span class="lnk-arr">›</span></a>
+  <a class="lnk" href="mailto:uro_jun@amc.seoul.kr"><span class="lnk-type">Email</span><span class="lnk-val">uro_jun@amc.seoul.kr</span><span class="lnk-arr">›</span></a>
   <a class="lnk" href="https://www.linkedin.com/in/jungyo-suh-45b170140/" target="_blank" rel="noopener"><span class="lnk-type">LinkedIn</span><span class="lnk-val">jungyo-suh</span><span class="lnk-arr">›</span></a>
   <a class="lnk" href="https://scholar.google.co.kr/citations?user=7pzN9MAAAAJ&hl=ko" target="_blank" rel="noopener"><span class="lnk-type">Scholar</span><span class="lnk-val">Jungyo Suh</span><span class="lnk-arr">›</span></a>
   <a class="lnk" href="https://orcid.org/0000-0002-3867-4778" target="_blank" rel="noopener"><span class="lnk-type">ORCID</span><span class="lnk-val">0000-0002-3867-4778</span><span class="lnk-arr">›</span></a>
   <a class="lnk" href="https://twitter.com/prostatehunter" target="_blank" rel="noopener"><span class="lnk-type">Twitter / X</span><span class="lnk-val">@prostatehunter</span><span class="lnk-arr">›</span></a>
   <a class="lnk" href="http://www.curigin.com/" target="_blank" rel="noopener"><span class="lnk-type">Company</span><span class="lnk-val">curigin.com</span><span class="lnk-arr">›</span></a>
+  <a class="lnk" href="https://github.com/jungyo/" target="_blank" rel="noopener"><span class="lnk-type">GitHub</span><span class="lnk-val">github.com/jungyo</span><span class="lnk-arr">›</span></a>
+  <a class="lnk" href="https://jungyo.github.io/" target="_blank" rel="noopener"><span class="lnk-type">Website</span><span class="lnk-val">jungyo.github.io</span><span class="lnk-arr">›</span></a>
 </div>
 
 <!-- FOOTER -->
@@ -519,38 +435,15 @@ footer{
   <div class="ft">
     <svg width="14" height="14" viewBox="0 0 80 80" fill="none">
       <polygon points="40,4 72,22 72,58 40,76 8,58 8,22" fill="none" stroke="#555" stroke-width="1.5"/>
-      <line x1="40" y1="40" x2="40"  y2="4.5"  stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
-      <line x1="40" y1="40" x2="8.5" y2="58.5" stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
+      <line x1="40" y1="40" x2="40"   y2="4.5"  stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
+      <line x1="40" y1="40" x2="8.5"  y2="58.5" stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
       <line x1="40" y1="40" x2="71.5" y2="58.5" stroke="#C8B89A" stroke-width="1.2" opacity=".5"/>
       <circle cx="40" cy="40" r="3.5" fill="#555"/>
     </svg>
-    CIPHER Lab · Jungyo Suh MD PhD · AMC
+    CIPHER Lab · Jungyo Suh MD PhD · Asan Medical Center
   </div>
   <span class="fr">Seoul 2025</span>
 </footer>
-
-<style>
-/* Hide desktop connect section on mobile, show mobile connect */
-@media(min-width:768px){
-  #connect-mobile{display:none;}
-  .sec-white{display:grid;grid-template-columns:1fr 1fr;}
-  .sec-white-left{border-right:1px solid #d8d6d1;}
-  .hero-left .hero-hex{display:none;} /* hide small hex on desktop, show big one on right */
-}
-@media(max-width:767px){
-  .hero-right{display:none;} /* hide right panel on mobile */
-  .hero-left{padding:48px 24px 44px;}
-  .hero-left .hero-hex{display:flex;}
-  .sec-white-right{display:none;} /* connect shown via mobile section */
-  .research-full{display:block;}
-  .research-full .ri{grid-template-columns:32px 1fr;border-bottom:1px solid var(--g2);border-right:none;}
-  .research-full .ri:last-child{border-bottom:none;}
-  .research-full .rn{padding:22px 0 22px 24px;}
-  .research-full .rh{padding:20px 24px;}
-  .content-grid{display:block;}
-  .col-left .sec,.col-right .sec{border-bottom:1px solid var(--g2);}
-}
-</style>
 
 <script>
 function saveContact(){
@@ -562,7 +455,8 @@ function saveContact(){
     'EMAIL;TYPE=WORK:uro_jun@amc.seoul.kr',
     'EMAIL;TYPE=HOME:crazyslime@gmail.com',
     'ADR;TYPE=WORK:;;88 Olympic-ro 43-gil;Seoul;Songpa-gu;05505;South Korea',
-    'URL:https://www.linkedin.com/in/jungyo-suh-45b170140/',
+    'URL;TYPE=LinkedIn:https://www.linkedin.com/in/jungyo-suh-45b170140/',
+    'URL;TYPE=GitHub:https://github.com/jungyo/',
     'NOTE:Urologic Oncologist · Clinical AI · Privacy-Preserving AI · CIPHER Lab · ORCID: 0000-0002-3867-4778',
     'END:VCARD'
   ].join('\n');
