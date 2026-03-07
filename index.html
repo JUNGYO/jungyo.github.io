@@ -55,7 +55,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-pills{display:flex;flex-wrap:wrap;gap:8px;}
 .pill{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,150,90,.28);padding:6px 14px;border-radius:2px;background:rgba(184,150,90,.05);}
 
-.hero-hex{width:160px;aspect-ratio:1;opacity:0;animation:fadeIn 1.5s ease .8s forwards;pointer-events:none;margin:0 auto 20px;display:block;}
+.hero-content{display:flex;flex-direction:column;justify-content:center;}
+.hero-hex-wrap{display:flex;align-items:center;justify-content:center;}
+.hero-hex{width:160px;aspect-ratio:1;opacity:0;animation:fadeIn 1.5s ease .8s forwards;pointer-events:none;}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
 @keyframes breathe{0%,100%{opacity:.12}50%{opacity:.35}}
@@ -161,7 +163,7 @@ footer{position:relative;z-index:1;display:flex;align-items:center;justify-conte
 @media(min-width:768px){
   nav{padding:16px 56px;}
   .nav-tag{display:flex;}
-  .hero{padding:140px 56px 64px;}
+  .hero{padding:140px 56px 64px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
   .hero-title{font-size:clamp(80px,15vw,152px);}
   .slabel{padding:26px 56px;}
   .research{display:grid;grid-template-columns:repeat(3,1fr);}
@@ -177,7 +179,7 @@ footer{position:relative;z-index:1;display:flex;align-items:center;justify-conte
   .cl{border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
   .cl:nth-child(even){border-right:none;}
   .cl:nth-last-child(-n+2){border-bottom:none;}
-  .hero-hex{position:absolute;right:56px;top:50%;transform:translateY(-50%);width:min(300px,28vw);margin:0;}
+  .hero-hex{width:100%;max-width:380px;margin:0 auto;}
   footer{padding:22px 56px;}
 }
 </style>
@@ -193,8 +195,25 @@ footer{position:relative;z-index:1;display:flex;align-items:center;justify-conte
 </nav>
 
 <section class="hero">
-  <div class="hero-eyebrow a1">Urologic Oncologist · Clinical AI · Privacy-Preserving AI</div>
-  <h1 class="hero-title a2">Jungyo<span class="last">Suh</span></h1>
+  <div class="hero-content">
+    <div class="hero-eyebrow a1">Urologic Oncologist · Clinical AI · Privacy-Preserving AI</div>
+    <h1 class="hero-title a2">Jungyo<span class="last">Suh</span></h1>
+    <div class="terminal a3">
+      <div class="term-bar"><div class="term-dot td-r"></div><div class="term-dot td-y"></div><div class="term-dot td-g"></div></div>
+      <div class="term-line"><span class="t-prompt">$</span> <span class="t-green">whoami</span></div>
+      <div class="term-line t-dim" style="padding-left:14px;margin-bottom:8px;">urologist · researcher · data_scientist</div>
+      <div class="term-line"><span class="t-prompt">$</span> <span class="t-green">cat</span> <span class="t-blue">expertise.txt</span></div>
+      <div class="term-line t-dim" style="padding-left:14px;margin-bottom:8px;min-height:21px;" id="type-line">&nbsp;</div>
+      <div class="term-line"><span class="t-prompt">$</span> <span class="t-cursor"></span></div>
+    </div>
+    <div class="hero-pills a4">
+      <span class="pill">Urologic Oncology</span>
+      <span class="pill">Clinical AI</span>
+      <span class="pill">LLM Red-Teaming</span>
+      <span class="pill">Homomorphic Encryption</span>
+    </div>
+  </div>
+  <div class="hero-hex-wrap">
   <svg class="hero-hex" viewBox="-30 0 340 280" fill="none">
     <polygon points="140,12 248,72 248,208 140,268 32,208 32,72" fill="none" stroke="#F4F1EC" stroke-width="1.5" opacity=".25"/>
     <polygon class="hex-breathe" points="140,40 224,88 224,192 140,240 56,192 56,88" fill="none" stroke="#F4F1EC" stroke-width=".8" opacity=".15"/>
@@ -213,19 +232,6 @@ footer{position:relative;z-index:1;display:flex;align-items:center;justify-conte
     <text x="270" y="222" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.5" fill="#B8965A" opacity=".75">PRIVACY</text>
     <text x="140" y="147" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="16" font-style="italic" fill="#F4F1EC" opacity=".35" letter-spacing="3">CIPHER</text>
   </svg>
-  <div class="terminal a3">
-    <div class="term-bar"><div class="term-dot td-r"></div><div class="term-dot td-y"></div><div class="term-dot td-g"></div></div>
-    <div class="term-line"><span class="t-prompt">$</span> <span class="t-green">whoami</span></div>
-    <div class="term-line t-dim" style="padding-left:14px;margin-bottom:8px;">urologist · researcher · data_scientist</div>
-    <div class="term-line"><span class="t-prompt">$</span> <span class="t-green">cat</span> <span class="t-blue">expertise.txt</span></div>
-    <div class="term-line t-dim" style="padding-left:14px;margin-bottom:8px;min-height:21px;" id="type-line">&nbsp;</div>
-    <div class="term-line"><span class="t-prompt">$</span> <span class="t-cursor"></span></div>
-  </div>
-  <div class="hero-pills a4">
-    <span class="pill">Urologic Oncology</span>
-    <span class="pill">Clinical AI</span>
-    <span class="pill">LLM Red-Teaming</span>
-    <span class="pill">Homomorphic Encryption</span>
   </div>
 </section>
 
