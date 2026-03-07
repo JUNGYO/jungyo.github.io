@@ -57,6 +57,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 .hero-hex{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:min(240px,30vw);aspect-ratio:1;opacity:0;animation:fadeIn 1.5s ease .8s forwards;pointer-events:none;}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes breathe{0%,100%{opacity:.12}50%{opacity:.35}}
+@keyframes drawLine{from{stroke-dashoffset:300}to{stroke-dashoffset:0}}
+.hex-breathe{animation:breathe 5s ease-in-out infinite;}
+.hex-vertex{animation:pulse 3s ease-in-out infinite;}
+.hex-vertex:nth-child(9){animation-delay:.5s;}
+.hex-vertex:nth-child(10){animation-delay:1s;}
+.hex-line{stroke-dasharray:300;stroke-dashoffset:300;animation:drawLine 2s ease 1s forwards;}
+.hex-line:nth-child(4){animation-delay:1.3s;}
+.hex-line:nth-child(5){animation-delay:1.6s;}
 
 /* STATS */
 .stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
@@ -200,25 +210,22 @@ footer{position:relative;z-index:1;display:flex;align-items:center;justify-conte
     <span class="pill">Homomorphic Encryption</span>
   </div>
   <svg class="hero-hex" viewBox="0 0 280 280" fill="none">
-    <polygon points="140,12 248,72 248,208 140,268 32,208 32,72" fill="none" stroke="#F4F1EC" stroke-width="1.5" opacity=".1"/>
-    <polygon points="140,40 224,88 224,192 140,240 56,192 56,88" fill="none" stroke="#F4F1EC" stroke-width=".8" opacity=".05"/>
-    <line x1="140" y1="140" x2="140" y2="12"  stroke="#B8965A" stroke-width="1" opacity=".3"/>
-    <line x1="140" y1="140" x2="32"  y2="208" stroke="#B8965A" stroke-width="1" opacity=".3"/>
-    <line x1="140" y1="140" x2="248" y2="208" stroke="#B8965A" stroke-width="1" opacity=".3"/>
-    <circle cx="140" cy="140" r="72" fill="none" stroke="#F4F1EC" stroke-width=".7" opacity=".05"/>
-    <circle cx="140" cy="140" r="44" fill="none" stroke="#B8965A" stroke-width=".7" opacity=".12"/>
-    <circle cx="140" cy="26"  r="5" fill="none" stroke="#B8965A" stroke-width="1.5" opacity=".5"/>
-    <circle cx="48"  cy="200" r="5" fill="none" stroke="#B8965A" stroke-width="1.5" opacity=".5"/>
-    <circle cx="232" cy="200" r="5" fill="none" stroke="#B8965A" stroke-width="1.5" opacity=".5"/>
-    <circle cx="140" cy="26"  r="2" fill="#B8965A" opacity=".4"/>
-    <circle cx="48"  cy="200" r="2" fill="#B8965A" opacity=".4"/>
-    <circle cx="232" cy="200" r="2" fill="#B8965A" opacity=".4"/>
-    <circle cx="140" cy="140" r="10" fill="none" stroke="#F4F1EC" stroke-width="1.2" opacity=".25"/>
-    <circle cx="140" cy="140" r="4"  fill="#F4F1EC"/>
-    <text x="140" y="16"  text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="2" fill="#B8965A" opacity=".5">ONCOLOGY</text>
-    <text x="30"  y="220" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.5" fill="#B8965A" opacity=".5">AI / ML</text>
-    <text x="250" y="220" text-anchor="start"  font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.5" fill="#B8965A" opacity=".5">PRIVACY</text>
-    <text x="140" y="147" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="16" font-style="italic" fill="#F4F1EC" opacity=".2" letter-spacing="3">CIPHER</text>
+    <polygon points="140,12 248,72 248,208 140,268 32,208 32,72" fill="none" stroke="#F4F1EC" stroke-width="1.5" opacity=".25"/>
+    <polygon class="hex-breathe" points="140,40 224,88 224,192 140,240 56,192 56,88" fill="none" stroke="#F4F1EC" stroke-width=".8" opacity=".15"/>
+    <line class="hex-line" x1="140" y1="140" x2="140" y2="12"  stroke="#B8965A" stroke-width="1.2" opacity=".55"/>
+    <line class="hex-line" x1="140" y1="140" x2="32"  y2="208" stroke="#B8965A" stroke-width="1.2" opacity=".55"/>
+    <line class="hex-line" x1="140" y1="140" x2="248" y2="208" stroke="#B8965A" stroke-width="1.2" opacity=".55"/>
+    <circle cx="140" cy="140" r="72" fill="none" stroke="#F4F1EC" stroke-width=".8" opacity=".12"/>
+    <circle class="hex-breathe" cx="140" cy="140" r="44" fill="none" stroke="#B8965A" stroke-width="1" opacity=".25"/>
+    <g class="hex-vertex"><circle cx="140" cy="26"  r="6" fill="none" stroke="#B8965A" stroke-width="1.5" opacity=".8"/><circle cx="140" cy="26"  r="2.5" fill="#B8965A" opacity=".7"/></g>
+    <g class="hex-vertex"><circle cx="48"  cy="200" r="6" fill="none" stroke="#B8965A" stroke-width="1.5" opacity=".8"/><circle cx="48"  cy="200" r="2.5" fill="#B8965A" opacity=".7"/></g>
+    <g class="hex-vertex"><circle cx="232" cy="200" r="6" fill="none" stroke="#B8965A" stroke-width="1.5" opacity=".8"/><circle cx="232" cy="200" r="2.5" fill="#B8965A" opacity=".7"/></g>
+    <circle cx="140" cy="140" r="10" fill="none" stroke="#F4F1EC" stroke-width="1.5" opacity=".4"/>
+    <circle cx="140" cy="140" r="4"  fill="#F4F1EC" opacity=".9"/>
+    <text x="140" y="14"  text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="2" fill="#B8965A" opacity=".75">ONCOLOGY</text>
+    <text x="30"  y="222" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.5" fill="#B8965A" opacity=".75">AI / ML</text>
+    <text x="250" y="222" text-anchor="start"  font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.5" fill="#B8965A" opacity=".75">PRIVACY</text>
+    <text x="140" y="147" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="16" font-style="italic" fill="#F4F1EC" opacity=".35" letter-spacing="3">CIPHER</text>
   </svg>
 </section>
 
