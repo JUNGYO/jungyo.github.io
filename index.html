@@ -56,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .pill{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,150,90,.28);padding:6px 14px;border-radius:2px;background:rgba(184,150,90,.05);}
 
 .hero-content{display:flex;flex-direction:column;justify-content:center;}
-.hero-hex-wrap{display:flex;align-items:center;justify-content:center;}
+.hero-hex-wrap{display:none;align-items:center;justify-content:center;}
 .hero-hex{width:160px;aspect-ratio:1;opacity:0;animation:fadeIn 1.5s ease .8s forwards;pointer-events:none;}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
@@ -179,6 +179,7 @@ footer{position:relative;z-index:1;display:flex;align-items:center;justify-conte
   .cl{border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
   .cl:nth-child(even){border-right:none;}
   .cl:nth-last-child(-n+2){border-bottom:none;}
+  .hero-hex-wrap{display:flex;}
   .hero-hex{width:100%;max-width:380px;margin:0 auto;}
   footer{padding:22px 56px;}
 }
