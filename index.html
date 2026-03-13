@@ -14,6 +14,8 @@
   --on:#1D1D1F;--on2:#48494B;--on3:#86888A;
   --outline:#DFE1E3;
   --primary:#1D1D1F;
+  --accent:#1C3047;
+  --accent-bg:rgba(28,48,71,.07);
   --onc:#0C6B63;--ai:#1A50A8;--priv:#A61B1B;
   --onc-bg:rgba(12,107,99,.05);--ai-bg:rgba(26,80,168,.04);--priv-bg:rgba(166,27,27,.04);
   --onc-bdr:rgba(12,107,99,.25);--ai-bdr:rgba(26,80,168,.2);--priv-bdr:rgba(166,27,27,.2);
@@ -42,7 +44,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-name{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.02em;}
 .nav-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on3);letter-spacing:.1em;text-transform:uppercase;margin-top:1px;}
 .nav-r{display:flex;align-items:center;gap:8px;}
-.nav-btn{font-size:13px;font-weight:500;background:var(--primary);color:#fff;border:none;cursor:pointer;padding:10px 20px;border-radius:100px;display:flex;align-items:center;gap:6px;transition:opacity .2s;white-space:nowrap;}
+.nav-btn{font-size:13px;font-weight:500;background:var(--accent);color:#fff;border:none;cursor:pointer;padding:10px 20px;border-radius:100px;display:flex;align-items:center;gap:6px;transition:opacity .2s;white-space:nowrap;}
 .nav-btn:hover{opacity:.82;}
 .nav-links{display:none;gap:2px;}
 .nav-link{font-size:13px;color:var(--on3);padding:8px 14px;border-radius:100px;transition:background .15s,color .15s;}
@@ -52,11 +54,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero{padding:110px 24px 56px;max-width:960px;margin:0 auto;}
 .hero-content{display:flex;flex-direction:column;justify-content:center;}
 .hero-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on3);margin-bottom:16px;letter-spacing:.1em;text-transform:uppercase;}
-.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,14vw,88px);font-weight:300;letter-spacing:-.03em;line-height:.9;margin-bottom:20px;}
-.hero-name strong{font-weight:400;font-style:italic;}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,14vw,88px);font-weight:300;letter-spacing:-.03em;line-height:.9;margin-bottom:20px;color:var(--on2);}
+.hero-name strong{font-weight:400;font-style:italic;color:var(--accent);}
 .hero-desc{font-size:16px;color:var(--on2);line-height:1.65;max-width:420px;margin-bottom:28px;}
-.hero-hex-wrap{display:none;align-items:center;justify-content:center;}
+.hero-motto{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,44px);color:var(--on3);line-height:1.35;letter-spacing:-.01em;opacity:0;animation:fadeIn 1.2s ease .6s forwards;}
+.hero-motto em{font-style:italic;color:var(--accent);font-weight:500;}
+.hero-motto-wrap{display:none;align-items:center;justify-content:center;padding:20px;}
 .hero-hex{width:100%;max-width:420px;margin:0 auto;opacity:0;animation:fadeIn 1.2s ease .6s forwards;}
+
+/* CHORD DIAGRAM */
+.chord-wrap{display:flex;justify-content:center;margin-top:40px;}
+.chord-svg{width:100%;max-width:380px;}
 .hex-breathe{animation:breathe 5s ease-in-out infinite;}
 .hex-vertex{animation:pulse 3s ease-in-out infinite;}
 .hex-vertex:nth-child(2){animation-delay:.6s;}
@@ -76,10 +84,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .t-cursor{display:inline-block;width:7px;height:13px;background:#27C93F;vertical-align:middle;margin-left:1px;animation:blink 1s infinite;}
 
 @keyframes drawChord{from{stroke-dashoffset:600}to{stroke-dashoffset:0}}
-.ch-line{stroke-dasharray:600;stroke-dashoffset:600;animation:drawChord 1s ease forwards;transition:opacity .3s;}
+.ch-line{stroke-dasharray:600;stroke-dashoffset:600;transition:opacity .3s;}
+.vis .ch-line{animation:drawChord 1s ease forwards;}
 .ch-a{cursor:pointer;transition:opacity .3s;}
-.hero-hex.hover .ch-line{opacity:.08;}.hero-hex.hover .ch-line.hi{opacity:.6;}
-.hero-hex.hover .ch-a{opacity:.25;}.hero-hex.hover .ch-a.hi{opacity:.95;}
+.chord-svg.hover .ch-line{opacity:.08;}.chord-svg.hover .ch-line.hi{opacity:.6;}
+.chord-svg.hover .ch-a{opacity:.25;}.chord-svg.hover .ch-a.hi{opacity:.95;}
+.chord-svg.hover text{opacity:.2;transition:opacity .3s;}.chord-svg.hover text.hi{opacity:1;}
 
 /* PILLS */
 .pills{display:flex;flex-wrap:wrap;gap:8px;}
@@ -132,11 +142,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .pub-yr{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on3);flex-shrink:0;padding-top:3px;width:36px;}
 .pub-info{flex:1;min-width:0;}
 .pub-j{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on3);margin-bottom:5px;letter-spacing:.02em;}
-.pub-if{font-weight:500;background:var(--sf2);padding:2px 8px;border-radius:100px;margin-left:6px;font-size:10px;}
-.sec-wrap-alt .pub-if{background:var(--sf);}
+.pub-if{font-weight:500;color:var(--accent);background:var(--accent-bg);padding:2px 8px;border-radius:100px;margin-left:6px;font-size:10px;}
+.sec-wrap-alt .pub-if{background:var(--accent-bg);}
 .pub-t{font-size:15px;font-weight:400;line-height:1.5;margin-bottom:4px;}
 .pub-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on3);}
-.pub-role.ca{color:var(--onc);font-weight:500;}
+.pub-role.ca{color:var(--accent);font-weight:500;}
 
 /* ABOUT */
 .about{max-width:960px;margin:0 auto;padding:0 24px;}
@@ -153,7 +163,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* CTA */
 .cta{max-width:960px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .cta-text{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--on);}
-.cta-btn{font-size:14px;font-weight:500;background:var(--primary);color:#fff;border:none;cursor:pointer;padding:14px 28px;border-radius:100px;display:flex;align-items:center;gap:8px;transition:opacity .2s;white-space:nowrap;}
+.cta-btn{font-size:14px;font-weight:500;background:var(--accent);color:#fff;border:none;cursor:pointer;padding:14px 28px;border-radius:100px;display:flex;align-items:center;gap:8px;transition:opacity .2s;white-space:nowrap;}
 .cta-btn:hover{opacity:.82;}
 
 /* CONNECT */
@@ -179,7 +189,7 @@ footer{max-width:960px;margin:0 auto;padding:32px 24px;display:flex;justify-cont
   nav{padding:12px 48px;}
   .nav-links{display:flex;}
   .hero{padding:130px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
-  .hero-hex-wrap{display:flex;}
+  .hero-motto-wrap{display:flex;}
   .stats{padding:48px;}
   .sec-inner{padding:0 48px;}
   .about{padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
@@ -224,8 +234,32 @@ footer{max-width:960px;margin:0 auto;padding:32px 24px;display:flex;justify-cont
       <span class="pill pill-p">Homomorphic Encryption</span>
     </div>
   </div>
-  <div class="hero-hex-wrap">
-    <svg class="hero-hex" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <div class="hero-motto-wrap">
+    <p class="hero-motto"><em>Decipher</em> tumor biology,<br><em>Encrypt</em> patient privacy.</p>
+  </div>
+</section>
+
+<!-- STATS — gray band -->
+<div class="stats-wrap reveal">
+  <div class="stats">
+    <div class="stat"><span class="stat-n">75+</span><span class="stat-l">Publications</span></div>
+    <div class="stat"><span class="stat-n">3</span><span class="stat-l">Patents</span></div>
+    <div class="stat"><span class="stat-n">$1.3M</span><span class="stat-l">Grants</span></div>
+    <div class="stat"><span class="stat-n">6</span><span class="stat-l">Awards</span></div>
+  </div>
+</div>
+
+<!-- RESEARCH — white -->
+<div class="sec-wrap reveal" id="research">
+  <div class="sec-inner">
+    <div class="sec-title">Research Focus</div>
+    <div class="cards">
+      <div class="card card-onc"><div class="card-head"><div class="card-dot dot-o"></div><span class="card-label card-label-o">Oncology</span></div><div class="card-title">Urologic Oncology</div><div class="card-desc">Molecular characterization of prostate, kidney, and bladder cancers. Multi-institutional cohort studies and causal AI.</div><div class="card-tags"><span class="card-tag">Prostate</span><span class="card-tag">RCC</span><span class="card-tag">Liquid Biopsy</span><span class="card-tag">NGS</span></div></div>
+      <div class="card card-ai"><div class="card-head"><div class="card-dot dot-a"></div><span class="card-label card-label-a">AI / ML</span></div><div class="card-title">Clinical AI</div><div class="card-desc">ML models for biopsy recommendation, surgical risk, and outcome prediction. Clinically deployed.</div><div class="card-tags"><span class="card-tag">Biopsy ML</span><span class="card-tag">Risk Models</span><span class="card-tag">Multi-center</span></div></div>
+      <div class="card card-priv"><div class="card-head"><div class="card-dot dot-p"></div><span class="card-label card-label-p">Privacy</span></div><div class="card-title">Privacy &amp; AI Safety</div><div class="card-desc">Homomorphic encryption for federated medical AI. LLM red-teaming and prompt injection research.</div><div class="card-tags"><span class="card-tag">HE</span><span class="card-tag">LLM Red-Team</span><span class="card-tag">Prompt Injection</span></div></div>
+    </div>
+    <div class="chord-wrap">
+      <svg class="chord-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
 <path class="ch-line" d="M215.8,118.4 Q251.6,218.9 297.4,122.5" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="1" style="animation-delay:0.60s"/>
 <path class="ch-line" d="M227.9,115.8 Q256.8,220.6 328.7,139.1" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="1" style="animation-delay:0.66s"/>
 <path class="ch-line" d="M240.2,114.4 Q261.4,223.3 354.6,163.1" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="1" style="animation-delay:0.71s"/>
@@ -283,28 +317,7 @@ footer{max-width:960px;margin:0 auto;padding:32px 24px;display:flex;justify-cont
 <text x="262.6" y="424.5" text-anchor="middle" dominant-baseline="central" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#0EA396" letter-spacing="1.5" opacity=".9">Kidney</text>
 <text x="111.8" y="357.4" text-anchor="end" dominant-baseline="central" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#15BEB0" letter-spacing="1.5" opacity=".9">Bladder</text>
 <text x="95.1" y="168.5" text-anchor="end" dominant-baseline="central" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#7DD4CB" letter-spacing="1.5" opacity=".9">Molecular</text>
-    </svg>
-  </div>
-</section>
-
-<!-- STATS — gray band -->
-<div class="stats-wrap reveal">
-  <div class="stats">
-    <div class="stat"><span class="stat-n">75+</span><span class="stat-l">Publications</span></div>
-    <div class="stat"><span class="stat-n">3</span><span class="stat-l">Patents</span></div>
-    <div class="stat"><span class="stat-n">$1.3M</span><span class="stat-l">Grants</span></div>
-    <div class="stat"><span class="stat-n">6</span><span class="stat-l">Awards</span></div>
-  </div>
-</div>
-
-<!-- RESEARCH — white -->
-<div class="sec-wrap reveal" id="research">
-  <div class="sec-inner">
-    <div class="sec-title">Research Focus</div>
-    <div class="cards">
-      <div class="card card-onc"><div class="card-head"><div class="card-dot dot-o"></div><span class="card-label card-label-o">Oncology</span></div><div class="card-title">Urologic Oncology</div><div class="card-desc">Molecular characterization of prostate, kidney, and bladder cancers. Multi-institutional cohort studies and causal AI.</div><div class="card-tags"><span class="card-tag">Prostate</span><span class="card-tag">RCC</span><span class="card-tag">Liquid Biopsy</span><span class="card-tag">NGS</span></div></div>
-      <div class="card card-ai"><div class="card-head"><div class="card-dot dot-a"></div><span class="card-label card-label-a">AI / ML</span></div><div class="card-title">Clinical AI</div><div class="card-desc">ML models for biopsy recommendation, surgical risk, and outcome prediction. Clinically deployed.</div><div class="card-tags"><span class="card-tag">Biopsy ML</span><span class="card-tag">Risk Models</span><span class="card-tag">Multi-center</span></div></div>
-      <div class="card card-priv"><div class="card-head"><div class="card-dot dot-p"></div><span class="card-label card-label-p">Privacy</span></div><div class="card-title">Privacy &amp; AI Safety</div><div class="card-desc">Homomorphic encryption for federated medical AI. LLM red-teaming and prompt injection research.</div><div class="card-tags"><span class="card-tag">HE</span><span class="card-tag">LLM Red-Team</span><span class="card-tag">Prompt Injection</span></div></div>
+      </svg>
     </div>
   </div>
 </div>
@@ -408,8 +421,8 @@ var b=new Blob([v],{type:"text/vcard"});var a=document.createElement("a");a.href
 }
 window.addEventListener("scroll",function(){document.getElementById("btt").classList.toggle("show",window.scrollY>400);});
 (function(){
-var svg=document.querySelector(".hero-hex");if(!svg)return;
-var arcs=svg.querySelectorAll(".ch-a"),lines=svg.querySelectorAll(".ch-line");
+var svg=document.querySelector(".chord-svg");if(!svg)return;
+var arcs=svg.querySelectorAll(".ch-a"),lines=svg.querySelectorAll(".ch-line"),labels=svg.querySelectorAll("text");
 arcs.forEach(function(a){
   a.addEventListener("mouseenter",function(){
     var g=a.getAttribute("data-g");svg.classList.add("hover");a.classList.add("hi");
@@ -417,11 +430,13 @@ arcs.forEach(function(a){
     arcs.forEach(function(a2){
       lines.forEach(function(l){if(l.classList.contains("hi")&&(l.getAttribute("data-s")===a2.getAttribute("data-g")||l.getAttribute("data-t")===a2.getAttribute("data-g")))a2.classList.add("hi");});
     });
+    labels.forEach(function(t){var prev=t.previousElementSibling;if(prev&&prev.classList.contains("hi"))t.classList.add("hi");});
   });
   a.addEventListener("mouseleave",function(){
     svg.classList.remove("hover");
     arcs.forEach(function(x){x.classList.remove("hi");});
     lines.forEach(function(x){x.classList.remove("hi");});
+    labels.forEach(function(x){x.classList.remove("hi");});
   });
 });
 })();
