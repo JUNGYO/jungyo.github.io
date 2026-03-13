@@ -56,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-name strong{font-weight:400;font-style:italic;}
 .hero-desc{font-size:16px;color:var(--on2);line-height:1.65;max-width:420px;margin-bottom:28px;}
 .hero-hex-wrap{display:none;align-items:center;justify-content:center;}
-.hero-hex{width:100%;max-width:320px;margin:0 auto;opacity:0;animation:fadeIn 1.2s ease .6s forwards;}
+.hero-hex{width:100%;max-width:420px;margin:0 auto;opacity:0;animation:fadeIn 1.2s ease .6s forwards;}
 .hex-breathe{animation:breathe 5s ease-in-out infinite;}
 .hex-vertex{animation:pulse 3s ease-in-out infinite;}
 .hex-vertex:nth-child(2){animation-delay:.6s;}
@@ -74,6 +74,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .tw{color:rgba(255,255,255,.7);}
 .type-row{min-height:22px;}
 .t-cursor{display:inline-block;width:7px;height:13px;background:#27C93F;vertical-align:middle;margin-left:1px;animation:blink 1s infinite;}
+
+@keyframes drawChord{from{stroke-dashoffset:600}to{stroke-dashoffset:0}}
+.ch-line{stroke-dasharray:600;stroke-dashoffset:600;animation:drawChord 1s ease forwards;transition:opacity .3s;}
+.ch-a{cursor:pointer;transition:opacity .3s;}
+.hero-hex.hover .ch-line{opacity:.08;}.hero-hex.hover .ch-line.hi{opacity:.6;}
+.hero-hex.hover .ch-a{opacity:.25;}.hero-hex.hover .ch-a.hi{opacity:.95;}
 
 /* PILLS */
 .pills{display:flex;flex-wrap:wrap;gap:8px;}
@@ -219,20 +225,64 @@ footer{max-width:960px;margin:0 auto;padding:32px 24px;display:flex;justify-cont
     </div>
   </div>
   <div class="hero-hex-wrap">
-    <svg class="hero-hex" viewBox="-20 -10 320 300" fill="none">
-      <polygon points="140,16 244,76 244,196 140,256 36,196 36,76" fill="none" stroke="var(--on)" stroke-width="1.5" opacity=".15"/>
-      <polygon class="hex-breathe" points="140,44 220,90 220,182 140,228 60,182 60,90" fill="none" stroke="var(--on)" stroke-width="1" opacity=".08"/>
-      <circle cx="140" cy="136" r="56" fill="none" stroke="var(--on)" stroke-width=".8" opacity=".08"/>
-      <line class="hex-line" x1="140" y1="136" x2="140" y2="16"  stroke="var(--onc)" stroke-width="2" opacity=".8"/>
-      <line class="hex-line" x1="140" y1="136" x2="36"  y2="196" stroke="var(--ai)" stroke-width="2" opacity=".8"/>
-      <line class="hex-line" x1="140" y1="136" x2="244" y2="196" stroke="var(--priv)" stroke-width="2" opacity=".8"/>
-      <g class="hex-vertex"><circle cx="140" cy="24" r="6" fill="none" stroke="var(--onc)" stroke-width="2" opacity=".9"/><circle cx="140" cy="24" r="2.5" fill="var(--onc)" opacity=".9"/></g>
-      <g class="hex-vertex"><circle cx="44" cy="192" r="6" fill="none" stroke="var(--ai)" stroke-width="2" opacity=".9"/><circle cx="44" cy="192" r="2.5" fill="var(--ai)" opacity=".9"/></g>
-      <g class="hex-vertex"><circle cx="236" cy="192" r="6" fill="none" stroke="var(--priv)" stroke-width="2" opacity=".9"/><circle cx="236" cy="192" r="2.5" fill="var(--priv)" opacity=".9"/></g>
-      <circle cx="140" cy="136" r="4" fill="var(--on)" opacity=".7"/>
-      <text x="140" y="4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" font-weight="500" letter-spacing="1.5" fill="var(--onc)" opacity=".9">UROLOGIC ONCOLOGY</text>
-      <text x="14" y="216" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--ai)" opacity=".9">AI / ML</text>
-      <text x="266" y="216" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--priv)" opacity=".9">PRIVACY</text>
+    <svg class="hero-hex" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<path class="ch-line" d="M215.8,118.4 Q251.6,218.9 297.4,122.5" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="1" style="animation-delay:0.60s"/>
+<path class="ch-line" d="M227.9,115.8 Q256.8,220.6 328.7,139.1" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="1" style="animation-delay:0.66s"/>
+<path class="ch-line" d="M240.2,114.4 Q261.4,223.3 354.6,163.1" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="1" style="animation-delay:0.71s"/>
+<path class="ch-line" d="M252.6,114.0 Q265.1,226.8 373.5,193.0" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="1" style="animation-delay:0.77s"/>
+<path class="ch-line" d="M265.0,114.8 Q267.9,231.0 384.0,226.7" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="1" style="animation-delay:0.82s"/>
+<path class="ch-line" d="M224.9,116.3 Q252.6,249.3 296.5,377.8" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="3" style="animation-delay:0.88s"/>
+<path class="ch-line" d="M255.7,114.1 Q247.4,249.7 222.3,383.2" fill="none" stroke="#A61B1B" stroke-width="1" opacity=".4" data-s="0" data-t="3" style="animation-delay:0.93s"/>
+<path class="ch-line" d="M297.4,122.5 Q271.9,236.5 385.1,265.3" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="2" style="animation-delay:0.98s"/>
+<path class="ch-line" d="M328.7,139.1 Q275.1,241.2 380.6,287.9" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="2" style="animation-delay:1.04s"/>
+<path class="ch-line" d="M354.6,163.1 Q277.2,246.7 372.4,309.4" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="2" style="animation-delay:1.09s"/>
+<path class="ch-line" d="M373.5,193.0 Q278.1,252.7 360.6,329.1" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="2" style="animation-delay:1.15s"/>
+<path class="ch-line" d="M384.0,226.7 Q277.6,258.8 345.7,346.6" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="2" style="animation-delay:1.21s"/>
+<path class="ch-line" d="M297.4,122.5 Q263.7,248.9 317.0,368.4" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="3" style="animation-delay:1.26s"/>
+<path class="ch-line" d="M328.7,139.1 Q264.2,252.3 289.3,380.2" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="3" style="animation-delay:1.31s"/>
+<path class="ch-line" d="M354.6,163.1 Q263.7,255.8 259.8,385.6" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="3" style="animation-delay:1.37s"/>
+<path class="ch-line" d="M373.5,193.0 Q262.4,259.3 229.7,384.5" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="3" style="animation-delay:1.42s"/>
+<path class="ch-line" d="M384.0,226.7 Q260.2,262.4 200.7,376.7" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="3" style="animation-delay:1.48s"/>
+<path class="ch-line" d="M321.3,134.2 Q247.7,248.3 159.2,351.3" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="4" style="animation-delay:1.54s"/>
+<path class="ch-line" d="M376.9,201.1 Q250.8,251.7 129.5,313.0" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="4" style="animation-delay:1.59s"/>
+<path class="ch-line" d="M308.3,127.1 Q240.7,235.2 114.0,249.1" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="5" style="animation-delay:1.65s"/>
+<path class="ch-line" d="M354.6,163.1 Q248.1,232.0 129.6,186.7" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="5" style="animation-delay:1.70s"/>
+<path class="ch-line" d="M381.5,215.2 Q256.4,232.4 172.2,138.4" fill="none" stroke="#1A50A8" stroke-width="1" opacity=".4" data-s="1" data-t="5" style="animation-delay:1.75s"/>
+<path class="ch-line" d="M385.3,263.4 Q250.0,253.4 114.9,265.3" fill="none" stroke="#0C6B63" stroke-width="1" opacity=".4" data-s="2" data-t="5" style="animation-delay:1.81s"/>
+<path class="ch-line" d="M382.1,282.3 Q249.7,251.8 115.1,232.9" fill="none" stroke="#0C6B63" stroke-width="1" opacity=".4" data-s="2" data-t="5" style="animation-delay:1.86s"/>
+<path class="ch-line" d="M376.2,300.6 Q249.9,250.2 122.9,201.5" fill="none" stroke="#0C6B63" stroke-width="1" opacity=".4" data-s="2" data-t="5" style="animation-delay:1.92s"/>
+<path class="ch-line" d="M367.9,317.8 Q250.7,248.9 138.0,172.8" fill="none" stroke="#0C6B63" stroke-width="1" opacity=".4" data-s="2" data-t="5" style="animation-delay:1.98s"/>
+<path class="ch-line" d="M357.2,333.7 Q252.0,247.9 159.5,148.5" fill="none" stroke="#0C6B63" stroke-width="1" opacity=".4" data-s="2" data-t="5" style="animation-delay:2.03s"/>
+<path class="ch-line" d="M344.3,348.0 Q253.6,247.4 186.1,130.0" fill="none" stroke="#0C6B63" stroke-width="1" opacity=".4" data-s="2" data-t="5" style="animation-delay:2.08s"/>
+<path class="ch-line" d="M372.4,309.4 Q265.9,273.4 259.8,385.6" fill="none" stroke="#0C6B63" stroke-width="1" opacity=".4" data-s="2" data-t="3" style="animation-delay:2.14s"/>
+<path class="ch-line" d="M372.4,309.4 Q251.8,267.1 142.6,333.5" fill="none" stroke="#0C6B63" stroke-width="1" opacity=".4" data-s="2" data-t="4" style="animation-delay:2.19s"/>
+<path class="ch-line" d="M320.7,366.2 Q242.3,266.1 115.1,267.6" fill="none" stroke="#0EA396" stroke-width="1" opacity=".4" data-s="3" data-t="5" style="animation-delay:2.25s"/>
+<path class="ch-line" d="M301.5,375.9 Q239.9,263.9 114.4,239.9" fill="none" stroke="#0EA396" stroke-width="1" opacity=".4" data-s="3" data-t="5" style="animation-delay:2.31s"/>
+<path class="ch-line" d="M281.0,382.4 Q238.0,261.4 119.3,212.5" fill="none" stroke="#0EA396" stroke-width="1" opacity=".4" data-s="3" data-t="5" style="animation-delay:2.36s"/>
+<path class="ch-line" d="M259.8,385.6 Q236.7,258.7 129.6,186.7" fill="none" stroke="#0EA396" stroke-width="1" opacity=".4" data-s="3" data-t="5" style="animation-delay:2.42s"/>
+<path class="ch-line" d="M238.3,385.5 Q236.0,255.9 145.0,163.5" fill="none" stroke="#0EA396" stroke-width="1" opacity=".4" data-s="3" data-t="5" style="animation-delay:2.47s"/>
+<path class="ch-line" d="M217.1,382.0 Q235.8,253.1 164.8,144.0" fill="none" stroke="#0EA396" stroke-width="1" opacity=".4" data-s="3" data-t="5" style="animation-delay:2.52s"/>
+<path class="ch-line" d="M196.7,375.1 Q236.2,250.5 188.1,128.9" fill="none" stroke="#0EA396" stroke-width="1" opacity=".4" data-s="3" data-t="5" style="animation-delay:2.58s"/>
+<path class="ch-line" d="M296.5,377.8 Q244.7,277.5 159.2,351.3" fill="none" stroke="#0EA396" stroke-width="1" opacity=".4" data-s="3" data-t="4" style="animation-delay:2.64s"/>
+<path class="ch-line" d="M222.3,383.2 Q232.2,273.5 129.5,313.0" fill="none" stroke="#0EA396" stroke-width="1" opacity=".4" data-s="3" data-t="4" style="animation-delay:2.69s"/>
+<path class="ch-line" d="M171.9,361.4 Q224.4,265.2 114.9,265.3" fill="none" stroke="#15BEB0" stroke-width="1" opacity=".4" data-s="4" data-t="5" style="animation-delay:2.75s"/>
+<path class="ch-line" d="M159.2,351.3 Q222.9,260.1 115.1,232.9" fill="none" stroke="#15BEB0" stroke-width="1" opacity=".4" data-s="4" data-t="5" style="animation-delay:2.80s"/>
+<path class="ch-line" d="M147.8,339.7 Q222.5,254.9 122.9,201.5" fill="none" stroke="#15BEB0" stroke-width="1" opacity=".4" data-s="4" data-t="5" style="animation-delay:2.85s"/>
+<path class="ch-line" d="M137.8,326.9 Q223.1,250.0 138.0,172.8" fill="none" stroke="#15BEB0" stroke-width="1" opacity=".4" data-s="4" data-t="5" style="animation-delay:2.91s"/>
+<path class="ch-line" d="M129.5,313.0 Q224.7,245.4 159.5,148.5" fill="none" stroke="#15BEB0" stroke-width="1" opacity=".4" data-s="4" data-t="5" style="animation-delay:2.97s"/>
+<path class="ch-line" d="M122.8,298.2 Q227.1,241.4 186.1,130.0" fill="none" stroke="#15BEB0" stroke-width="1" opacity=".4" data-s="4" data-t="5" style="animation-delay:3.02s"/>
+<path class="ch-a" d="M205.7,106.7 A150,150 0 0,1 273.3,101.8 L271.1,115.7 A136,136 0 0,0 209.8,120.1 Z" fill="#A61B1B" opacity=".9" data-g="0"/>
+<path class="ch-a" d="M283.6,103.8 A150,150 0 0,1 399.9,243.7 L385.9,244.3 A136,136 0 0,0 280.5,117.5 Z" fill="#1A50A8" opacity=".9" data-g="1"/>
+<path class="ch-a" d="M399.9,254.2 A150,150 0 0,1 346.1,365.1 L337.2,354.4 A136,136 0 0,0 385.9,253.8 Z" fill="#0C6B63" opacity=".9" data-g="2"/>
+<path class="ch-a" d="M337.9,371.6 A150,150 0 0,1 180.5,382.9 L187.0,370.5 A136,136 0 0,0 329.7,360.2 Z" fill="#0EA396" opacity=".9" data-g="3"/>
+<path class="ch-a" d="M171.4,377.7 A150,150 0 0,1 106.8,294.7 L120.2,290.5 A136,136 0 0,0 178.7,365.8 Z" fill="#15BEB0" opacity=".9" data-g="4"/>
+<path class="ch-a" d="M104.0,284.6 A150,150 0 0,1 195.8,110.2 L200.8,123.2 A136,136 0 0,0 117.7,281.3 Z" fill="#7DD4CB" opacity=".9" data-g="5"/>
+<text x="237.4" y="75.5" text-anchor="middle" dominant-baseline="central" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#A61B1B" letter-spacing="1.5" opacity=".9">Privacy</text>
+<text x="384.6" y="138.2" text-anchor="start" dominant-baseline="central" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#1A50A8" letter-spacing="1.5" opacity=".9">AI / ML</text>
+<text x="407.5" y="326.4" text-anchor="start" dominant-baseline="central" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#0C6B63" letter-spacing="1.5" opacity=".9">Prostate</text>
+<text x="262.6" y="424.5" text-anchor="middle" dominant-baseline="central" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#0EA396" letter-spacing="1.5" opacity=".9">Kidney</text>
+<text x="111.8" y="357.4" text-anchor="end" dominant-baseline="central" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#15BEB0" letter-spacing="1.5" opacity=".9">Bladder</text>
+<text x="95.1" y="168.5" text-anchor="end" dominant-baseline="central" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#7DD4CB" letter-spacing="1.5" opacity=".9">Molecular</text>
     </svg>
   </div>
 </section>
@@ -268,8 +318,11 @@ footer{max-width:960px;margin:0 auto;padding:32px 24px;display:flex;justify-cont
       <div class="pub"><div class="pub-yr">2025</div><div class="pub-info"><div class="pub-j">JAMA Network Open<span class="pub-if">IF 9.9</span></div><div class="pub-t">Vulnerability of LLMs to Prompt Injection When Providing Medical Advice</div><div class="pub-role ca">Corresponding Author</div></div></div>
       <div class="pub"><div class="pub-yr">2025</div><div class="pub-info"><div class="pub-j">Radiology: AI<span class="pub-if">IF 13.2</span></div><div class="pub-t">Privacy-Preserving Deep Learning with Homomorphic Encryption for Kidney CT</div><div class="pub-role ca">Corresponding Author</div></div></div>
       <div class="pub"><div class="pub-yr">2024</div><div class="pub-info"><div class="pub-j">Exp Mol Med<span class="pub-if">IF 12.8</span></div><div class="pub-t">Comprehensive Molecular Characterization of TFE3-rearranged RCC</div><div class="pub-role ca">First Author</div></div></div>
+      <div class="pub"><div class="pub-yr">2024</div><div class="pub-info"><div class="pub-j">J Exp Clin Cancer Res<span class="pub-if">IF 12.8</span></div><div class="pub-t">Intravesical Instillation-Based mTOR-STAT3 Dual Targeting for Bladder Cancer</div><div class="pub-role">Co-Author</div></div></div>
       <div class="pub"><div class="pub-yr">2022</div><div class="pub-info"><div class="pub-j">npj Digital Med<span class="pub-if">IF 15.3</span></div><div class="pub-t">Multi-center Validation of ML Model for Postoperative Mortality Prediction</div><div class="pub-role">Co-Author</div></div></div>
       <div class="pub"><div class="pub-yr">2022</div><div class="pub-info"><div class="pub-j">Small Methods<span class="pub-if">IF 12.3</span></div><div class="pub-t">Isolation and Genomic Analysis of Single CTC Using hTERT and DSG-2</div><div class="pub-role ca">First Author</div></div></div>
+      <div class="pub"><div class="pub-yr">2022</div><div class="pub-info"><div class="pub-j">JAMIA<span class="pub-if">IF 4.6 · Q1</span></div><div class="pub-t">Deep-Learning-Based Clinical Decision Support Tool for Patients in the PSA Grey Zone</div><div class="pub-role ca">Corresponding Author</div></div></div>
+      <div class="pub"><div class="pub-yr">2020</div><div class="pub-info"><div class="pub-j">BJU Int<span class="pub-if">IF 4.4 · Q1</span></div><div class="pub-t">Development and Validation of Explainable AI-Based Decision-Supporting Tool for Prostate Biopsy</div><div class="pub-role ca">First Author</div></div></div>
     </div>
   </div>
 </div>
@@ -282,7 +335,7 @@ footer{max-width:960px;margin:0 auto;padding:32px 24px;display:flex;justify-cont
 " alt="Jungyo Suh">
       <div class="about-title">Jungyo <strong>Suh</strong></div>
       <p class="about-bio">Urologic surgeon and data scientist at Asan Medical Center — one of Asia's largest academic hospitals. My work spans the full pipeline: from molecular biology of kidney and prostate cancers to clinical AI deployment. Author of chapters in Springer-Nature's Management of Urothelial Carcinoma.</p>
-      <p class="about-bio">I lead research on privacy-preserving AI and LLM red-teaming. Faculty at Modulabs. Director of Curigin, a medical AI startup.</p>
+      <p class="about-bio">I lead research on privacy-preserving AI and LLM red-teaming. Faculty at Modulabs. Director of Curigin, a biopharmaceutical company developing novel therapeutics.</p>
     </div>
     <div>
       <div class="sec-title" style="padding-top:0">Details</div>
@@ -353,9 +406,25 @@ function saveContact(){
 var v=["BEGIN:VCARD","VERSION:3.0","FN:Jungyo Suh","N:Suh;Jungyo;;;","X-PHONETIC-LAST-NAME:\uc11c","X-PHONETIC-FIRST-NAME:\uc900\uad50","TITLE:Assistant Professor, Dept. of Urology","ORG:Asan Medical Center;University of Ulsan College of Medicine","EMAIL;TYPE=WORK:uro_jun@amc.seoul.kr","EMAIL;TYPE=HOME:crazyslime@gmail.com","ADR;TYPE=WORK:;;88 Olympic-ro 43-gil;Seoul;Songpa-gu;05505;South Korea","END:VCARD"].join("\r\n");
 var b=new Blob([v],{type:"text/vcard"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="Jungyo_Suh.vcf";a.click();URL.revokeObjectURL(a.href);
 }
-var btt=document.getElementById("btt");
-if(btt){window.addEventListener("scroll",function(){if(window.scrollY>400)btt.classList.add("show");else btt.classList.remove("show");});}
+window.addEventListener("scroll",function(){document.getElementById("btt").classList.toggle("show",window.scrollY>400);});
+(function(){
+var svg=document.querySelector(".hero-hex");if(!svg)return;
+var arcs=svg.querySelectorAll(".ch-a"),lines=svg.querySelectorAll(".ch-line");
+arcs.forEach(function(a){
+  a.addEventListener("mouseenter",function(){
+    var g=a.getAttribute("data-g");svg.classList.add("hover");a.classList.add("hi");
+    lines.forEach(function(l){if(l.getAttribute("data-s")===g||l.getAttribute("data-t")===g)l.classList.add("hi");});
+    arcs.forEach(function(a2){
+      lines.forEach(function(l){if(l.classList.contains("hi")&&(l.getAttribute("data-s")===a2.getAttribute("data-g")||l.getAttribute("data-t")===a2.getAttribute("data-g")))a2.classList.add("hi");});
+    });
+  });
+  a.addEventListener("mouseleave",function(){
+    svg.classList.remove("hover");
+    arcs.forEach(function(x){x.classList.remove("hi");});
+    lines.forEach(function(x){x.classList.remove("hi");});
+  });
+});
+})();
 </script>
-
 </body>
 </html>
