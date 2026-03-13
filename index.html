@@ -40,7 +40,8 @@ a{color:inherit;text-decoration:none;}
 .reveal.vis{opacity:1;transform:translateY(0);}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:box-shadow .3s;}
+nav.scrolled{box-shadow:0 1px 12px rgba(0,0,0,.06);}
 .nav-name{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.02em;}
 .nav-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on3);letter-spacing:.1em;text-transform:uppercase;margin-top:1px;}
 .nav-r{display:flex;align-items:center;gap:8px;}
@@ -49,6 +50,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links{display:none;gap:2px;}
 .nav-link{font-size:13px;color:var(--on3);padding:8px 14px;border-radius:100px;transition:background .15s,color .15s;}
 .nav-link:hover{background:var(--sf2);color:var(--on);}
+.nav-link.active{color:var(--accent);font-weight:500;}
 
 /* HERO */
 .hero{padding:110px 24px 56px;max-width:960px;margin:0 auto;}
@@ -104,7 +106,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .stat{text-align:center;position:relative;}
 .stat::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:var(--outline);}
 .stat:last-child::after{display:none;}
-.stat-n{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,6vw,48px);line-height:1;margin-bottom:6px;display:block;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,6vw,48px);line-height:1;margin-bottom:6px;display:block;color:var(--accent);}
 .stat-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--on3);display:block;}
 
 /* SECTION HELPERS */
@@ -137,7 +139,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* PUBLICATIONS */
 .pub-list{display:flex;flex-direction:column;}
-.pub{padding:18px 0;border-bottom:1px solid var(--outline);display:flex;gap:16px;align-items:flex-start;}
+.pub{padding:20px 16px;border-bottom:1px solid var(--outline);display:flex;gap:16px;align-items:flex-start;border-radius:var(--rs);margin:0 -16px;transition:background .2s;}
+.pub:hover{background:rgba(28,48,71,.03);}
 .pub:last-child{border-bottom:none;}
 .pub-yr{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on3);flex-shrink:0;padding-top:3px;width:36px;}
 .pub-info{flex:1;min-width:0;}
@@ -161,6 +164,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .fact-v{font-size:14px;}
 
 /* CTA */
+.sec-wrap-cta{padding:56px 0;background:linear-gradient(135deg,rgba(28,48,71,.04) 0%,rgba(28,48,71,.09) 100%);}
 .cta{max-width:960px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .cta-text{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--on);}
 .cta-btn{font-size:14px;font-weight:500;background:var(--accent);color:#fff;border:none;cursor:pointer;padding:14px 28px;border-radius:100px;display:flex;align-items:center;gap:8px;transition:opacity .2s;white-space:nowrap;}
@@ -171,7 +175,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .link{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--outline);transition:opacity .15s;}
 .link:last-child{border-bottom:none;}
 .link:hover{opacity:.65;}
-.link-icon{width:40px;height:40px;border-radius:var(--rs);background:var(--sf2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.link-icon{width:40px;height:40px;border-radius:var(--rs);background:var(--sf2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s,transform .25s;}
+.link:hover .link-icon{background:var(--accent-bg);transform:scale(1.08);}
 .sec-wrap-alt .link-icon{background:var(--sf);}
 .link-label{font-size:12px;color:var(--on3);}
 .link-val{font-size:14px;font-weight:500;}
@@ -188,7 +193,7 @@ footer{max-width:960px;margin:0 auto;padding:32px 24px;display:flex;justify-cont
 @media(min-width:768px){
   nav{padding:12px 48px;}
   .nav-links{display:flex;}
-  .hero{padding:130px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  .hero{padding:130px 48px 64px;display:grid;grid-template-columns:3fr 2fr;gap:40px;align-items:center;}
   .hero-motto-wrap{display:flex;}
   .stats{padding:48px;}
   .sec-inner{padding:0 48px;}
@@ -367,8 +372,8 @@ footer{max-width:960px;margin:0 auto;padding:32px 24px;display:flex;justify-cont
   </div>
 </div>
 
-<!-- CTA — gray -->
-<div class="sec-wrap-alt reveal">
+<!-- CTA — gradient -->
+<div class="sec-wrap-cta reveal">
   <div class="cta">
     <div><span class="cta-text">Save to contacts</span><br><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on3);letter-spacing:.06em;text-transform:uppercase">.vcf · iPhone · Android · Desktop</span></div>
     <button class="cta-btn" onclick="saveContact()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Save Contact</button>
@@ -419,7 +424,15 @@ function saveContact(){
 var v=["BEGIN:VCARD","VERSION:3.0","FN:Jungyo Suh","N:Suh;Jungyo;;;","X-PHONETIC-LAST-NAME:\uc11c","X-PHONETIC-FIRST-NAME:\uc900\uad50","TITLE:Assistant Professor, Dept. of Urology","ORG:Asan Medical Center;University of Ulsan College of Medicine","EMAIL;TYPE=WORK:uro_jun@amc.seoul.kr","EMAIL;TYPE=HOME:crazyslime@gmail.com","ADR;TYPE=WORK:;;88 Olympic-ro 43-gil;Seoul;Songpa-gu;05505;South Korea","END:VCARD"].join("\r\n");
 var b=new Blob([v],{type:"text/vcard"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="Jungyo_Suh.vcf";a.click();URL.revokeObjectURL(a.href);
 }
-window.addEventListener("scroll",function(){document.getElementById("btt").classList.toggle("show",window.scrollY>400);});
+window.addEventListener("scroll",function(){
+  document.getElementById("btt").classList.toggle("show",window.scrollY>400);
+  document.querySelector("nav").classList.toggle("scrolled",window.scrollY>10);
+  var sections=document.querySelectorAll("[id]");
+  var links=document.querySelectorAll(".nav-link");
+  var current="";
+  sections.forEach(function(s){if(window.scrollY>=s.offsetTop-120)current=s.getAttribute("id");});
+  links.forEach(function(l){l.classList.toggle("active",l.getAttribute("href")==="#"+current);});
+});
 (function(){
 var svg=document.querySelector(".chord-svg");if(!svg)return;
 var arcs=svg.querySelectorAll(".ch-a"),lines=svg.querySelectorAll(".ch-line"),labels=svg.querySelectorAll("text");
