@@ -59,11 +59,11 @@ nav.scrolled{box-shadow:0 1px 12px rgba(0,0,0,.06);}
 .hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,14vw,88px);font-weight:300;letter-spacing:-.03em;line-height:.9;margin-bottom:20px;color:var(--on2);}
 .hero-name strong{font-weight:400;font-style:italic;color:var(--accent);}
 .hero-desc{font-size:16px;color:var(--on2);line-height:1.65;max-width:420px;margin-bottom:28px;}
-.hero-motto-m{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3.5vw,22px);color:var(--on3);line-height:1.45;margin-bottom:20px;}
+.hero-motto-m{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3.5vw,22px);color:var(--on3);line-height:1.45;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--outline);}
 .hero-motto-m em{font-style:italic;color:var(--accent);font-weight:400;}
 .hero-motto{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,44px);color:var(--on3);line-height:1.35;letter-spacing:-.01em;opacity:0;animation:fadeIn 1.2s ease .6s forwards;}
 .hero-motto em{font-style:italic;color:var(--accent);font-weight:500;}
-.hero-motto-wrap{display:none;align-items:center;justify-content:center;padding:20px;}
+.hero-motto-wrap{display:none;align-items:center;justify-content:center;padding:20px 20px 20px 40px;border-left:1px solid var(--outline);}
 .hero-hex{width:100%;max-width:420px;margin:0 auto;opacity:0;animation:fadeIn 1.2s ease .6s forwards;}
 
 /* CHORD DIAGRAM */
@@ -115,16 +115,17 @@ nav.scrolled{box-shadow:0 1px 12px rgba(0,0,0,.06);}
 .sec-wrap{padding:56px 0;}
 .sec-wrap-alt{padding:56px 0;background:var(--sf2);}
 .sec-inner{max-width:960px;margin:0 auto;padding:0 24px;}
-.sec-title{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--on3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px;}
+.sec-title{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--on3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--outline);max-width:120px;}
 
 /* RESEARCH CARDS — color accent */
 .cards{display:flex;flex-direction:column;gap:12px;}
-.card{background:var(--sf);border-radius:var(--r);padding:28px 24px;border:1px solid var(--outline);position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s;}
+.card{background:var(--sf);border-radius:var(--r);padding:28px 24px;border:1px solid var(--outline);position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s,transform .25s;}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
 .card-onc::before{background:var(--onc);}
 .card-ai::before{background:var(--ai);}
 .card-priv::before{background:var(--priv);}
-.card:hover{border-color:transparent;box-shadow:0 4px 20px rgba(0,0,0,.06);}
+.card:hover{border-color:transparent;box-shadow:0 8px 28px rgba(0,0,0,.08);transform:translateY(-4px);}
 .sec-wrap-alt .card{background:var(--sf);}
 .card-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
 .card-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
@@ -159,6 +160,7 @@ nav.scrolled{box-shadow:0 1px 12px rgba(0,0,0,.06);}
 .about-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;letter-spacing:-.02em;margin-bottom:16px;}
 .about-title strong{font-weight:400;font-style:italic;}
 .about-bio{font-size:15px;color:var(--on2);line-height:1.85;margin-bottom:16px;max-width:480px;}
+.about-bio:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:3.2em;float:left;line-height:.8;margin-right:8px;margin-top:4px;color:var(--accent);font-weight:400;}
 .facts{display:flex;flex-direction:column;}
 .fact{display:flex;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px solid var(--outline);}
 .fact:last-child{border-bottom:none;}
